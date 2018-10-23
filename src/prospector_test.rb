@@ -18,9 +18,15 @@ class ProstpectorTest < Minitest::Test
 
     def test_city_is_not_nil
         refute_nil @city
-        assert_kind_of city, City
+        assert_kind_of City, city
     end
 
     def test_mine_gold
         assert_
     end
+
+    def test_add_gold
+        mock_prospector = Minitest::Mock.new('Prospector')
+        def mock_prospector.
+    end
+end
