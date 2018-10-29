@@ -1,5 +1,3 @@
-
-
 require 'minitest/autorun'
 require_relative 'class_prospector'
 require_relative 'class_city'
@@ -30,11 +28,14 @@ class ProstpectorTest < Minitest::Test
 
     end
 
+    # Check that gold is correctly added to the prospector
     def test_add_gold
         prospect = Prospector.new
-        prospect.add_gold
+        prospect.add_gold(10)
+        assert_equal prospect.gold_holding 10
     end
 
+    # Test that a prospector can move from one city to another
     def test_move_city
         prospect = Prospector.new
         prospect.move Minitest::Mock.new("")
