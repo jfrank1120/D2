@@ -1,5 +1,5 @@
 Metrics/LineLength:
--ee Max: 120
+- Max: 120
 
 Metrics/MethodLength:
 - Max: 40
