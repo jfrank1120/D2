@@ -7,7 +7,6 @@ class ProstpectorTest < Minitest::Test
     # Create objects to be used in Mock testing
     def setup
         @prospect = Prospector::new
-        @city = City::new
     end
 
     # If a prospector object is created then the prospector
@@ -15,17 +14,6 @@ class ProstpectorTest < Minitest::Test
     def test_prospector_is_not_nil
         refute_nil @prospect
         assert_kind_of Prospector, prospect
-    end
-
-    # If a city object is created then the city
-    # should not return nil
-    def test_city_is_not_nil
-        refute_nil @city
-        assert_kind_of City, city
-    end
-
-    def test_mine_gold
-
     end
 
     # Check that gold is correctly added to the prospector
@@ -37,6 +25,18 @@ class ProstpectorTest < Minitest::Test
 
     # Test that a prospector can move from one city to another
     def test_move_city
-        prospect = Prospector.new
-        prospect.move Minitest::Mock.new("")
+        city1 = Minitest::Mock::new "mock city"
+        def city1.name
+            "New City"
+        end
+        prospect.move city1
+        assert_equal "New City", prospect.location?
+    end
+
+    # Test that the number of moves increments correctly
+    def test_num_moves
+        test_city = Minitest::Mock::new "mock city"
+        prospect.move city1
+        assert_equal 1, prospector.num_moves?
+    end
 end
