@@ -2,15 +2,15 @@ require_relative 'class_city'
 
 # Map Object (IMUTABLE)
 class Map
-  def initialize(rand)
-    @cities =[]
-    @sutter_creek = city.new(userSeed, "Sutter Creek", 2, 0)
-    @coloma = city.new(userSeed, "Coloma", 3, 0)
-    @angels_camp = city.new(userSeed, "Angels Camp", 4, 0)
-    @nevada_city = city.new(userSeed, "Nevada City", 5, 0)
-    @virginia_city = city.new(userSeed, "Virginia City", 3, 3)
-    @midas = city.new(userSeed, "Midas", 0, 5)
-    @el_dorado_cn = city.new(userSeed, "El Dorado Canyon", 0, 10)
+  def initialize(userSeed)
+    @cities = []
+    @sutter_creek = City.new(userSeed, "Sutter Creek", 2, 0)
+    @coloma = City.new(userSeed, "Coloma", 3, 0)
+    @angels_camp = City.new(userSeed, "Angels Camp", 4, 0)
+    @nevada_city = City.new(userSeed, "Nevada City", 5, 0)
+    @virginia_city = City.new(userSeed, "Virginia City", 3, 3)
+    @midas = City.new(userSeed, "Midas", 0, 5)
+    @el_dorado_cn = City.new(userSeed, "El Dorado Canyon", 0, 10)
     @start = @cities[6]
     citiesToArray
     link_cities
@@ -29,7 +29,7 @@ class Map
 
   # Linked in acordance with the map
   def link_cities
-    
+
 
     # Sutter creek link creation
     @sutter_creek.add_link(@coloma)

@@ -1,6 +1,6 @@
 require 'minitest/autorun'
-require_relative 'class_prospector'
-require_relative 'class_city'
+require_relative '../src/class_prospector'
+require_relative '../src/class_city'
 
 class ProstpectorTest < Minitest::Test
 
@@ -40,7 +40,7 @@ class ProstpectorTest < Minitest::Test
         @prosp.move city1
         assert_equal 1, @prosp.num_moves?
     end
-    
+
     def test_location_city_type
       assert_instance_of(City, @prosp.location?)
     end
