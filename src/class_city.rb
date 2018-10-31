@@ -33,10 +33,12 @@ class City
   end
 
   def mine_gold
-    @random.rand * @gold
+    gold_mined = @random.rand * @gold
+    gold_mined.to_i
   end
 
   def mine_silver
-    @random.rand * @silver
+    silver_mined = @random.rand * @silver
+    silver_mined.to_i
   end
 end

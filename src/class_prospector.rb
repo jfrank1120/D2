@@ -78,7 +78,16 @@ class Prospector
 
   def print_location
     puts "The Prospector #{@number} is now Aproaching: #{@curr_location.name?}"
-    puts "Currently Holding: Gold Ounces -> " + @gold_holding.to_s + " : Silver Ounces -> " + @silver_holding.to_s
+    if @gold_holding != 1
+        puts "Currently Holding: " + @gold_holding.to_s + " Ounces of Gold"
+    else
+        puts "Currently Holding: " + @gold_holding.to_s + " Ounce of Gold"
+    end
+    if @silver_holding != 1
+        puts "Currently Holding: " + @silver_holding.to_s + " Ounces of Silver"
+    else
+        puts "Currently Holding: " + @silver_holding.to_s + " Ounce of Silver"
+    end
   end
 
 end
