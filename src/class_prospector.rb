@@ -9,9 +9,18 @@ class Prospector
     @silver_found = 0
     @location_count = 0
     @visited = []
+    @days_traveled = 0
   end
 
-  def get_number?
+  def days_traveled?
+      @days_traveled
+  end
+
+  def inc_days_traveled
+      @days_traveled += 1
+  end
+
+  def number?
       @number
   end
 
@@ -69,7 +78,7 @@ class Prospector
 
   def print_location
     puts "The Prospector #{@number} is now Aproaching: #{@curr_location.name?}"
-    puts "Currently Holding: Gold -> " + @gold_holding.to_s + " : Silver -> " + @silver_holding.to_s
+    puts "Currently Holding: Gold Ounces -> " + @gold_holding.to_s + " : Silver Ounces -> " + @silver_holding.to_s
   end
 
 end
