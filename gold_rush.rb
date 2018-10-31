@@ -11,7 +11,7 @@ end
 def game_loop(prospector, currmap)
   while prospector.num_moves? <= 5
     cont_mining = 0
-    currmap.print_map(prospector.location?)
+    currmap.print_map(prospector.location?.name?)
     while cont_mining.zero?
       cont_mining = mine_metals(prospector)
       prospector.inc_days_traveled
