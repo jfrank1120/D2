@@ -76,6 +76,10 @@ class Prospector
     @curr_location = city
   end
 
+  def loc_count?
+    @location_count
+  end
+
   def print_location
     puts "The Prospector #{@number} is now Aproaching: #{@curr_location.name?}"
     if @gold_holding != 1

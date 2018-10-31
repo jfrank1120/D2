@@ -10,8 +10,12 @@ end
 
 def game_loop(prospector, currmap)
   while prospector.num_moves? <= 5
+    cont_mining = 0
     currmap.print_map(prospector.location?)
-    mine_metals(prospector)
+    while cont_mining.zero?
+      cont_mining = mine_metals(prospector)
+      prospector.inc_days_traveled
+    end
     prospector.move(prospector.location?.next_city?)
     prospector.print_location
   end
@@ -33,11 +37,32 @@ def mine_metals(prospector)
   p_num = prospector.number?.to_s
   # Mine for gold and silver in current city
   prospector.set_found_gold(prospector.location?.mine_gold)
+  found_gold = prospector.found_gold?
   print_findings('Gold', prospector.found_gold?, p_num)
   prospector.add_gold(prospector.found_gold?)
   prospector.set_found_silver(prospector.location?.mine_silver)
+  found_silver = prospector.location?.mine_silver
   print_findings('Silver', prospector.found_silver?, p_num)
   prospector.add_silver(prospector.found_silver?)
+  check_move(found_silver, found_gold, prospector.loc_count?)
+end
+
+def check_later_moves(silver_amt, gold_amt)
+  if silver_amt > 0 || gold_amt > 0
+    0
+  else
+    1
+  end
+end
+
+def check_move(silver_amt, gold_amt, location_num)
+  if location_num < 4
+    check_later_moves(silver_amt, gold_amt)
+  elsif gold_amt <= 1 && silver_amt <= 2
+    1
+  else
+    0
+  end
 end
 
 def print_findings(metal_type, amt, num)
