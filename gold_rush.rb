@@ -37,19 +37,19 @@ def print_findings(metal_type, amt, p_num)
 end
 
 def finish_trip(prospector)
-    gold_val = prospector.held_gold? * 20.67
-    silver_val = prospector.held_silver? * 1.31
-    puts 'After ' + prospector.days_traveled?.to_s + ' Days, Prospector ' + prospector.number?.to_s + ' returned to San Fransico with:'
-    if prospector.held_gold? != 1
-        puts prospector.held_gold?.to_s + " Ounces of Gold worth: $" + gold_val.to_s
-    else
-        puts prospector.held_gold?.to_s + " Ounce of Gold worth: $" + gold_val.to_s
-    end
-    if prospector.held_silver? != 1
-        puts prospector.held_silver?.to_s + " Ounces of Silver worth: $" + silver_val.to_s
-    else
-        puts prospector.held_silver?.to_s + " Ounce of Silver worth: $" + silver_val.to_s
-    end
+  gold_val = prospector.held_gold? * 20.67
+  silver_val = prospector.held_silver? * 1.31
+  puts 'After ' + prospector.days_traveled?.to_s + ' Days, Prospector ' + prospector.number?.to_s + ' returned to San Fransico with:'
+  if prospector.held_gold? != 1
+    puts prospector.held_gold?.to_s + " Ounces of Gold worth: $" + gold_val.to_s
+  else
+    puts prospector.held_gold?.to_s + " Ounce of Gold worth: $" + gold_val.to_s
+  end
+  if prospector.held_silver? != 1
+    puts prospector.held_silver?.to_s + " Ounces of Silver worth: $" + silver_val.to_s
+  else
+    puts prospector.held_silver?.to_s + " Ounce of Silver worth: $" + silver_val.to_s
+  end
 end
 
 if check_args? ARGV
