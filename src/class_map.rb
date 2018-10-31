@@ -2,23 +2,22 @@ require_relative './class_city'
 
 # Map Object (IMUTABLE)
 class Map
-  def initialize(userSeed, cities)
+  def initialize(user_seed, cities)
     @cities = cities
-    @sutter_creek = City.new(userSeed, "Sutter Creek", 2, 0)
-    @coloma = City.new(userSeed, "Coloma", 3, 0)
-    @angels_camp = City.new(userSeed, "Angels Camp", 4, 0)
-    @nevada_city = City.new(userSeed, "Nevada City", 5, 0)
-    @virginia_city = City.new(userSeed, "Virginia City", 3, 3)
-    @midas = City.new(userSeed, "Midas", 0, 5)
-    @el_dorado_cn = City.new(userSeed, "El Dorado Canyon", 0, 10)
-    citiesToArray
+    @sutter_creek = City.new(user_seed, 'Sutter Creek', 2, 0)
+    @coloma = City.new(user_seed, 'Coloma', 3, 0)
+    @angels_camp = City.new(user_seed, 'Angels Camp', 4, 0)
+    @nevada_city = City.new(user_seed, 'Nevada City', 5, 0)
+    @virginia_city = City.new(user_seed, 'Virginia City', 3, 3)
+    @midas = City.new(user_seed, 'Midas', 0, 5)
+    @el_dorado_cn = City.new(user_seed, 'El Dorado Canyon', 0, 10)
+    cities_to_array
     # Places the start at Sutter Creek
-    @start = @cities[0]
+    @start = @sutter_creek
     link_cities
-    freeze
   end
 
-  def citiesToArray
+  def cities_to_array
     @start = @sutter_creek
     @cities << @sutter_creek
     @cities << @coloma
@@ -31,8 +30,6 @@ class Map
 
   # Linked in acordance with the map
   def link_cities
-
-
     # Sutter creek link creation
     @sutter_creek.add_link(@coloma)
     @sutter_creek.add_link(@angels_camp)
@@ -59,25 +56,30 @@ class Map
   end
 
   def print_map(target = nil)
-    a = target == 'Nevada City' ? '<-- Prospector' : ''
-    b = target == 'Angles Camp' ? '<-- Prospector' : ''
-    c = target == 'Midas' ? '<-- Prospector' : ''
-    d = target == 'Virginia City' ? '<-- Prospector|' : '              |'
-    e = target == 'El Dorado Canyon' ? '<-- Prospector' : ''
-    f = target == 'Coloma' ? '<-- Prospector' : ''
+    vec = []
+    vec << target == 'Nevada City' ? '<-- Prospector' : ''
+    vec << target == 'Angles Camp' ? '<-- Prospector' : ''
+    vec << target == 'Midas' ? '<-- Prospector' : ''
+    vec << target == 'Virginia City' ? '<-- Prospector|' : '              |'
+    vec << target == 'El Dorado Canyon' ? '<-- Prospector' : ''
+    vec << target == 'Coloma' ? '<-- Prospector' : ''
+    map_vec_to_print vec
+  end
+
+  def map_vec_to_print vec
     print "MAP:
     --------------------------------------------------------------------
-         Nevada City#{a}
+         Nevada City#{vec[0]}
                \\
                 \\
-                 Angels Camp#{b}
-                   |     \\            /---------- Midas#{c}
-                   |     Virginia City#{d}
+                 Angels Camp#{vec[1]}
+                   |     \\            /---------- Midas#{vec[2]}
+                   |     Virginia City#{vec[3]}
                    |            |    \\              |
-                   |            |     \\---------- El Dorado Canyon#{e}
+                   |            |     \\---------- El Dorado Canyon#{vec[4]}
                    |            |
                    |            |
-    Start -->Sutter Creek ---- Coloma#{f}
+    Start -->Sutter Creek ---- Coloma#{vec[5]}
     ---------------------------------------------------------------------\n"
   end
 
