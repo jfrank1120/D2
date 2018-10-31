@@ -1,9 +1,9 @@
-require_relative 'class_city'
+require_relative './class_city'
 
 # Map Object (IMUTABLE)
 class Map
-  def initialize(userSeed)
-    @cities = []
+  def initialize(userSeed, cities)
+    @cities = cities
     @sutter_creek = City.new(userSeed, "Sutter Creek", 2, 0)
     @coloma = City.new(userSeed, "Coloma", 3, 0)
     @angels_camp = City.new(userSeed, "Angels Camp", 4, 0)
@@ -19,6 +19,7 @@ class Map
   end
 
   def citiesToArray
+    @start = @sutter_creek
     @cities << @sutter_creek
     @cities << @coloma
     @cities << @angels_camp
