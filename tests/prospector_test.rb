@@ -20,6 +20,12 @@ class ProstpectorTest < Minitest::Test
     @prosp.add_gold(10)
     assert_equal @prosp.held_gold?, 10
   end
+
+  def test_add_silver
+    @prosp = Prospector.new @map
+    @prosp.add_silver(10)
+    assert_equal @prosp.held_silver?, 10
+  end
   # Test that a prospector can move from one city to another
   def test_move_city
     city1 = City.new(Random.new, "testCity", 0, 0)
@@ -28,11 +34,19 @@ class ProstpectorTest < Minitest::Test
     @prosp.move @map.start? 
   end
 
+  def test_print_location
+    city1 = City.new(Random.new, "testCity", 0, 0)
+    @prosp.move city1
+    assert_output (/The Prospector is now Aproaching: testCity/){@prosp.print_location}
+    @prosp.move @map.start? 
+  end
   # Test that the number of moves increments correctly
   def test_num_moves
-      test_city = Minitest::Mock::new "mock city"
+      @prosp = Prospector.new(@map)
+      city1 = City.new(Random.new, "testCity", 0, 0)
       @prosp.move city1
       assert_equal 1, @prosp.num_moves?
+      @prosp.move @map.start? 
   end
   
   def test_location_city_type

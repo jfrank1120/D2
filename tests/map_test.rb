@@ -10,13 +10,16 @@ class TestMap < Minitest::Test
 
   def test_map_add_cities
     addMock = Minitest::Mock.new
-    addMock.expect :<<, nil
-    addMock.expect :<<, nil
-    addMock.expect :<<, nil
-    addMock.expect :<<, nil
-    addMock.expect :<<, nil
-    addMock.expect :<<, nil
-    addMock.expect :<<, nil
+    def addMock::[] num
+      nil
+    end
+    addMock.expect :<<, nil, [City]
+    addMock.expect :<<, nil, [City]
+    addMock.expect :<<, nil, [City]
+    addMock.expect :<<, nil, [City]
+    addMock.expect :<<, nil, [City]
+    addMock.expect :<<, nil, [City]
+    addMock.expect :<<, nil, [City]
     addingMap = Map.new(Random.new, addMock)
     assert_mock addMock
   end
