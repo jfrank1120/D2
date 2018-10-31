@@ -5,7 +5,20 @@ require_relative '../src/class_city.rb'
 # tests for the city obj
 class TestMap < Minitest::Test
   def setup
-    @map = Map.new(Random.new)
+    @map = Map.new(Random.new, [])
+  end
+
+  def test_map_add_cities
+    addMock = Minitest::Mock.new
+    addMock.expect :<<, nil
+    addMock.expect :<<, nil
+    addMock.expect :<<, nil
+    addMock.expect :<<, nil
+    addMock.expect :<<, nil
+    addMock.expect :<<, nil
+    addMock.expect :<<, nil
+    addingMap = Map.new(Random.new, addMock)
+    assert_mock addMock
   end
 
   def test_map_contains_num_cities
@@ -23,7 +36,7 @@ class TestMap < Minitest::Test
     assert_includes(names, 'Sutter Creek')
     assert_includes(names, 'Nevada City')
     assert_includes(names, 'Virginia City')
-    assert_includes(names, 'Angles Camp')
+    assert_includes(names, 'Angels Camp')
     assert_includes(names, 'Coloma')
     assert_includes(names, 'Midas')
     assert_includes(names, 'El Dorado Canyon')
