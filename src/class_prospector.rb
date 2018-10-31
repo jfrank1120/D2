@@ -1,6 +1,7 @@
 # Prospector Object (Mutable)
 class Prospector
   def initialize(map)
+    @number = 0
     @gold_holding = 0
     @silver_holding = 0
     @curr_location = map.start?
@@ -8,6 +9,14 @@ class Prospector
     @silver_found = 0
     @location_count = 0
     @visited = []
+  end
+
+  def get_number?
+      @number
+  end
+
+  def set_number(num)
+      @number = num
   end
 
   def add_gold(amount)
@@ -26,12 +35,20 @@ class Prospector
     @gold_holding
   end
 
+  def set_found_gold(amount)
+      @gold_found = amount
+  end
+
   def found_gold?
     @gold_found
   end
 
   def held_silver?
     @silver_holding
+  end
+
+  def set_found_silver(amount)
+      @silver_found = amount
   end
 
   def found_silver?
@@ -51,7 +68,8 @@ class Prospector
   end
 
   def print_location
-    puts "The Prospector is now Aproaching: #{@curr_location.name?}"
+    puts "The Prospector #{@number} is now Aproaching: #{@curr_location.name?}"
+    puts "Currently Holding: Gold -> " + @gold_holding.to_s + " : Silver -> " + @silver_holding.to_s
   end
 
 end
