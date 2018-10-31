@@ -2,7 +2,7 @@
 
 ## Contributors
 * Jared Frank : jaf216@pitt.edu : [Github Account](https://github.com/jfrank1120)
-* Ryan Guild : @pitt.edu : [Github Account](https://github.com/RyanGuild)
+* Ryan Guild : rg27@pitt.edu : [Github Account](https://github.com/RyanGuild)
 
 ## Project Links
 * [Repository](https://github.com/jfrank1120/D2)
