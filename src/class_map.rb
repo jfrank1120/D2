@@ -12,6 +12,8 @@ class Map
     @midas = City.new(userSeed, "Midas", 0, 5)
     @el_dorado_cn = City.new(userSeed, "El Dorado Canyon", 0, 10)
     citiesToArray
+    # Places the start at Sutter Creek
+    @start = @cities[0]
     link_cities
     freeze
   end
@@ -29,7 +31,7 @@ class Map
 
   # Linked in acordance with the map
   def link_cities
-    
+
 
     # Sutter creek link creation
     @sutter_creek.add_link(@coloma)
@@ -75,7 +77,7 @@ class Map
                    |            |     \\---------- El Dorado Canyon#{e}
                    |            |
                    |            |
-    start -->Sutter Creek ---- Coloma#{f}
+    Start -->Sutter Creek ---- Coloma#{f}
     ---------------------------------------------------------------------\n"
   end
 

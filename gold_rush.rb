@@ -10,11 +10,12 @@ def start_game args
   args[1].to_i.times do
     map = Map.new(Random.new(args[0].to_i), [])
     prospector = Prospector.new(map)
+
     while prospector.num_moves? <= 5
-      
-      map.print_map prospector.location?.name?
-      prospector.move(prospector.location?.next_city?)
-      prospector.print_location
+        puts "Prospector moves: " + prospector.num_moves?.to_s
+        map.print_map(prospector.location?)
+        prospector.move(prospector.location?.next_city?)
+        prospector.print_location
     end
   end
 end

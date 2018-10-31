@@ -3,7 +3,6 @@ require_relative '../src/class_prospector'
 require_relative '../src/class_city'
 
 class ProstpectorTest < Minitest::Test
-
   # Create objects to be used in Mock testing
   def setup
     @map = Map.new(Random.new, [])

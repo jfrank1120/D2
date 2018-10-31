@@ -45,8 +45,8 @@ class Prospector
   def move(city)
     unless @visited.include?(city)
       @visited << city
-      @location_count += 1
     end
+    @location_count += 1
     @curr_location = city
   end
 
