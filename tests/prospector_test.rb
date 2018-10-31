@@ -31,28 +31,32 @@ class ProstpectorTest < Minitest::Test
     city1 = City.new(Random.new, "testCity", 0, 0)
     @prosp.move city1
     assert_same @prosp.location?, city1
-    @prosp.move @map.start? 
+    @prosp.move @map.start?
   end
 
+  # Unit test that the location of the prospector can be printed correctly
   def test_print_location
     city1 = City.new(Random.new, "testCity", 0, 0)
     @prosp.move city1
     assert_output (/The Prospector is now Aproaching: testCity/){@prosp.print_location}
-    @prosp.move @map.start? 
+    @prosp.move @map.start?
   end
+
   # Test that the number of moves increments correctly
   def test_num_moves
       @prosp = Prospector.new(@map)
       city1 = City.new(Random.new, "testCity", 0, 0)
       @prosp.move city1
       assert_equal 1, @prosp.num_moves?
-      @prosp.move @map.start? 
+      @prosp.move @map.start?
   end
-  
+
   def test_location_city_type
     assert_instance_of City, @prosp.location?
   end
 
+  # Unit test to check that all values for a newly created Prospector
+  # object are set to 0
   def test_initial_values
     assert_equal(0, @prosp.held_gold?)
     assert_equal(0, @prosp.held_silver?)
@@ -61,6 +65,8 @@ class ProstpectorTest < Minitest::Test
     assert_equal(0, @prosp.num_moves?)
   end
 
+  # Unit test to see that the prospector can move to the next city
+  # that is linked to the one it is currently in
   def test_move_next
     next_city = @prosp.location?.next_city?
     assert_instance_of(City, next_city)
