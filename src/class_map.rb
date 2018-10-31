@@ -53,6 +53,11 @@ class Map
     # El Dorado Canyon link creation
     @el_dorado_cn.add_link(@midas)
     @el_dorado_cn.add_link(@virginia_city)
+
+    @virginia_city.add_link(@midas)
+    @virginia_city.add_link(@el_dorado_cn)
+    @virginia_city.add_link(@angels_camp)
+    @virginia_city.add_link(@coloma)
   end
 
   def print_map(target = nil)

@@ -8,6 +8,7 @@ class TestMap < Minitest::Test
     @map = Map.new(Random.new, [])
   end
 
+  # UNIT TEST FOR METHOD add_cities(city)
   def test_map_add_cities
     addMock = Minitest::Mock.new
     def addMock::[] num
@@ -24,16 +25,19 @@ class TestMap < Minitest::Test
     assert_mock addMock
   end
 
+  #UNIT TEST FOR METHOD contains_num_cities
   def test_map_contains_num_cities
     assert_equal(@map.cities?.count, 7)
   end
 
+  #UNIT TEST FOR METHOD contains_city_obj
   def test_map_contains_city_obj
     @map.cities?.each do |city|
       assert_instance_of(City, city)
     end
   end
 
+  # UNIT TEST FOR METHOD contains_all_cities
   def test_map_contains_all_cities
     names = @map.cities?.map { |x| x.name? }
     assert_includes(names, 'Sutter Creek')
@@ -45,7 +49,8 @@ class TestMap < Minitest::Test
     assert_includes(names, 'El Dorado Canyon')
   end
 
-  def test_start_pointer_defied
+  #UNIT TEST FOR METHOD .start
+  def test_start_pointer_defined
     refute_nil @map.start?
   end
 end
