@@ -61,17 +61,16 @@ end
 def print_trip_data(prospector, gold_val, silver_val)
   gold_str = gold_val.to_s
   silver_str = silver_val.to_s
-  held_silver_str = prospector.held_silver?.to_s
-  held_gold_str = prospector.held_gold?.to_s
-  if prospector.held_gold? != 1
-    puts held_gold_str + ' Ounces of Gold worth: $' + gold_str
+  print_metal_values(gold_str, prospector.held_gold?, 'Gold')
+  print_metal_values(silver_str, prospector.held_silver?, 'Silver')
+end
+
+def print_metal_values(val_str, held_amt, metal_type)
+  held_amt_str = held_amt.to_s
+  if held_amt != 1
+    puts held_amt_str + ' Ounces of ' + metal_type + 'worth: $' + val_str
   else
-    puts held_gold_str + ' Ounce of Gold worth: $ ' + gold_str
-  end
-  if prospector.held_silver? != 1
-    puts held_silver_str + ' Ounces of Silver worth: $' + silver_str
-  else
-    puts held_silver_str + ' Ounce of Silver worth: $' + silver_str
+    puts held_amt_str + ' Ounce of ' + metal_type + 'worth: $' + val_str
   end
 end
 
