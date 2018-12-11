@@ -11,9 +11,6 @@ class TestCity < Minitest::Test
 
   # Unit test to check that the set name of a city can begin
   # accessed by using the .name? method
-  rescue ExceptionName
-
-  end
   def test_title_set
     assert_equal('Sutter Creek', @city.name?)
   end

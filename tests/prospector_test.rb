@@ -38,7 +38,7 @@ class ProstpectorTest < Minitest::Test
   def test_print_location
     city1 = City.new(Random.new, "testCity", 0, 0)
     @prosp.move city1
-    assert_output (/The Prospector is now Aproaching: testCity/){@prosp.print_location}
+    assert_output (/The Prospector 0 is now Aproaching: testCity/){@prosp.print_location}
     @prosp.move @map.start?
   end
 
